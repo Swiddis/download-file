@@ -37,7 +37,7 @@ runs:
 
     - if: inputs.target != ''
       run: >
-        mkdir -p $( dirname ${{ inputs.target }} )
+        mkdir -p $( dirname ${{ inputs.target }} );
         wget
         -O ${{ inputs.target }}
         '${{ inputs.url }}'
