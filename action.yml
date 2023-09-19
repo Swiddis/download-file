@@ -38,8 +38,8 @@ runs:
     - if: inputs.target != ''
       run: >
         wget
-        '${{ inputs.url }}'
         -O ${{ inputs.target }}
+        '${{ inputs.url }}'
         --retry-connrefused
         --tries=3
         --no-dns-cache
