@@ -33,6 +33,7 @@ runs:
         --no-dns-cache
         --progress=bar:force:noscroll
         --verbose
+      shell: bash
 
     - if: inputs.target != ''
       run: >
@@ -44,5 +45,4 @@ runs:
         --no-dns-cache
         --progress=bar:force:noscroll
         --verbose
-
       shell: bash
