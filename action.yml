@@ -39,7 +39,7 @@ runs:
       run: >
         wget
         '${{ inputs.url }}'
-        -O '${{ inputs.target }}'
+        -O ${{ inputs.target }}
         --retry-connrefused
         --tries=3
         --no-dns-cache
