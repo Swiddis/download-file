@@ -24,13 +24,25 @@ runs:
       run: cat C:\ProgramData\chocolatey\logs\chocolatey.log
       shell: bash
 
-    - run: >
+    - if: inputs.target == ''
+      run: >
         wget
         '${{ inputs.url }}'
-        ${{ inputs.target && ('-O \'${{ inputs.target }}\'') }}
         --retry-connrefused
         --tries=3
         --no-dns-cache
         --progress=bar:force:noscroll
         --verbose
+
+    - if: inputs.target != ''
+      run: >
+        wget
+        '${{ inputs.url }}'
+        -O '${{ inputs.target }}'
+        --retry-connrefused
+        --tries=3
+        --no-dns-cache
+        --progress=bar:force:noscroll
+        --verbose
+
       shell: bash
